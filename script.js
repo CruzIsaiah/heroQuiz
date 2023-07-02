@@ -3,6 +3,7 @@ const nextButton = document.getElementById("next-btn");
 const questionContainerElement = document.getElementById("quiz-container");
 const questionElement = document.getElementById("question");
 const answerButtonsElement = document.getElementById("answer-buttons");
+const pictureElement = document.getElementById("picture");
 
 let shuffledQuestions, currentQuestionIndex;
 let score = {
@@ -99,19 +100,7 @@ function showResult() {
     },
   };
 
-  // Append "-ish" if the score is less than 3
-  if (score.hero < 3) {
-    roles.hero.name += "-ish";
-  }
-  if (score.villain < 3) {
-    roles.villain.name += "-ish";
-  }
-  if (score.edgelord < 3) {
-    roles.edgelord.name += "-ish";
-  }
-  if (score.civilian < 3) {
-    roles.civilian.name += "-ish";
-  }
+  const appendIsh = (role) => (score[role] < 3 ? `${role}-ish` : `the ${role}`);
 
   const result =
     score.hero >= score.villain &&
@@ -131,12 +120,17 @@ function showResult() {
   // Add a CSS class to the body element based on the selected role
   document.body.classList.add(result.name.toLowerCase());
 
-  questionElement.innerText = `You're the ${result.name}!`;
+  const roleName = appendIsh(result.name.toLowerCase());
+
+  questionElement.innerText = `You're ${roleName}!`;
 
   // Create a new paragraph element for the description
   const descriptionElement = document.createElement("p");
   descriptionElement.innerText = result.description;
   questionElement.appendChild(descriptionElement);
+
+  // Show the picture
+  pictureElement.style.display = "block";
 
   // Update the "Next" button
   nextButton.innerText = "Show Score";
@@ -170,6 +164,9 @@ function restartGame() {
   setNextQuestion();
 }
 
+// Hide the picture initially
+pictureElement.style.display = "none";
+
 const questions = [
   {
     question: "If someone's in trouble, what are you more likely to do?",
@@ -191,7 +188,7 @@ const questions = [
       "You're training and you are struggling to adapt to a difficult routine, what best describes your mindset?",
     answers: [
       {
-        text: "You have to be the strongest so no one can stop you",
+        text: "To be the strongest so no one can stop you",
         role: "villain",
       },
       { text: "I wouldn't train, I don't like to fight", role: "civilian" },
@@ -202,13 +199,13 @@ const questions = [
   {
     question: "What is the motivation for doing what you do?",
     answers: [
-      { text: "Payback. They'll see", role: "villain" },
-      { text: "I just want to provide for my family", role: "civilian" },
+      { text: "To create chaos of course", role: "villain" },
+      { text: "I want to provide for my family", role: "civilian" },
       {
-        text: "If I told you, you wouldn't understand, just be quiet",
+        text: "If I told you, you wouldn't understand",
         role: "edgelord",
       },
-      { text: "To help people in need", role: "hero" },
+      { text: "To help all people in need", role: "hero" },
     ],
   },
   {
@@ -227,15 +224,15 @@ const questions = [
     question: "What is the best way to prepare for a test?",
     answers: [
       {
-        text: "Prepare? I just sit next to the smart kid in class 👀",
+        text: "I just sit next to the smart kid in class 👀",
         role: "villain",
       },
       {
-        text: "Studying is a good idea, but I'm probably just going to watch TV instead",
+        text: "Study I think, but probably just watch TV instead",
         role: "civilian",
       },
       {
-        text: "I don't need to study, I've read all the books in the library",
+        text: "I don't need to study, naturally gifted",
         role: "edgelord",
       },
       { text: "Studying hard and asking questions when needed", role: "hero" },
