@@ -34,7 +34,11 @@ function setNextQuestion() {
 
 function showQuestion(question) {
   questionElement.innerText = question.question;
-  question.answers.forEach((answer, index) => {
+
+  // Shuffle the answer choices randomly
+  const shuffledAnswers = question.answers.sort(() => Math.random() - 0.5);
+
+  shuffledAnswers.forEach((answer) => {
     const button = document.createElement("button");
     button.innerText = answer.text;
     button.classList.add("btn");
@@ -129,12 +133,10 @@ function showResult() {
   descriptionElement.innerText = result.description;
   questionElement.appendChild(descriptionElement);
 
-  // Show the picture
-  pictureElement.style.display = "block";
-
   // Update the "Next" button
   nextButton.innerText = "Show Score";
   nextButton.classList.remove("hide");
+  nextButton.removeEventListener("click", setNextQuestion);
   nextButton.addEventListener("click", showScore);
 }
 
@@ -164,6 +166,11 @@ function restartGame() {
   setNextQuestion();
 }
 
+function showPicture() {
+  pictureElement.style.display = "block";
+}
+
+nextButton.addEventListener("click", showPicture);
 // Hide the picture initially
 pictureElement.style.display = "none";
 
