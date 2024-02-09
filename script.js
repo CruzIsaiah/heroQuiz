@@ -204,7 +204,7 @@ const questions = [
     ],
   },
   {
-    question: "What is the motivation for doing what you do?",
+    question: "What is your motivation for doing what you do?",
     answers: [
       { text: "To create chaos of course", role: "villain" },
       { text: "I want to provide for my family", role: "civilian" },
@@ -227,22 +227,348 @@ const questions = [
       { text: "The only tool we need is friendship", role: "hero" },
     ],
   },
+  // Additional questions for each archetype
   {
-    question: "What is the best way to prepare for a test?",
+    question: "How do you react when someone stands in the way of your goals?",
     answers: [
       {
-        text: "I just sit next to the smart kid in class 👀",
+        text: "I'll do whatever it takes to remove them as a threat, no matter the cost.",
         role: "villain",
       },
       {
-        text: "Study I think, but probably just watch TV instead",
+        text: "I'll try to manipulate or deceive them to achieve my objectives.",
+        role: "villain",
+      },
+      {
+        text: "I'll assess the situation and determine if it's worth compromising or finding an alternative solution.",
+        role: "hero",
+      },
+      {
+        text: "I'll consider their perspective and attempt to negotiate or find common ground.",
+        role: "civilian",
+      },
+    ],
+  },
+  {
+    question: "What's your approach to gaining power or influence?",
+    answers: [
+      {
+        text: "I believe in seizing power through force and intimidation.",
+        role: "villain",
+      },
+      {
+        text: "I prefer to manipulate situations to my advantage, controlling others from behind the scenes.",
+        role: "villain",
+      },
+      {
+        text: "I focus on building alliances and leveraging my resources strategically.",
+        role: "hero",
+      },
+      {
+        text: "I aim to inspire and lead others through charisma and persuasion.",
+        role: "hero",
+      },
+    ],
+  },
+  {
+    question: "How do you handle conflicts in your personal relationships?",
+    answers: [
+      {
+        text: "I strive to maintain harmony and resolve conflicts through open communication and compromise.",
         role: "civilian",
       },
       {
-        text: "I don't need to study, naturally gifted",
+        text: "I avoid confrontation and prioritize keeping the peace, even if it means sacrificing my own needs.",
+        role: "civilian",
+      },
+      {
+        text: "I seek advice from friends or family members to help navigate difficult situations.",
+        role: "hero",
+      },
+      {
+        text: "I confront issues directly, addressing them head-on to find a resolution.",
+        role: "hero",
+      },
+    ],
+  },
+  {
+    question:
+      "What's your response to unexpected challenges in your daily life?",
+    answers: [
+      {
+        text: "I adapt quickly, finding creative solutions to overcome obstacles.",
+        role: "hero",
+      },
+      {
+        text: "I seek support from loved ones or seek professional assistance if necessary.",
+        role: "civilian",
+      },
+      {
+        text: "I may feel overwhelmed initially but ultimately find a way to cope and move forward.",
+        role: "civilian",
+      },
+      {
+        text: "I view challenges as opportunities for growth and embrace them with a positive attitude.",
+        role: "hero",
+      },
+    ],
+  },
+  {
+    question: "What's your idea of a good time?",
+    answers: [
+      {
+        text: "Pulling elaborate pranks on unsuspecting victims.",
+        role: "villain",
+      },
+      {
+        text: "Attending lively parties and social events.",
         role: "edgelord",
       },
-      { text: "Studying hard and asking questions when needed", role: "hero" },
+      {
+        text: "Exploring abandoned places and seeking thrills.",
+        role: "edgelord",
+      },
+      {
+        text: "Engaging in intellectual debates and mind games.",
+        role: "hero",
+      },
+    ],
+  },
+  {
+    question: "What's your attitude towards change and uncertainty?",
+    answers: [
+      {
+        text: "I embrace it wholeheartedly and seek out new experiences.",
+        role: "edgelord",
+      },
+      {
+        text: "I prefer stability and avoid unnecessary risks.",
+        role: "civilian",
+      },
+      {
+        text: "I cautiously approach change, weighing the potential benefits and drawbacks.",
+        role: "hero",
+      },
+      {
+        text: "I thrive in unpredictable environments and adapt quickly to new situations.",
+        role: "villain",
+      },
+    ],
+  },
+  {
+    question: "How do you express your individuality or uniqueness?",
+    answers: [
+      {
+        text: "I challenge societal norms and conventions, embracing alternative lifestyles or beliefs.",
+        role: "edgelord",
+      },
+      {
+        text: "I cultivate an aura of mystery and intrigue, often keeping my true thoughts and feelings hidden.",
+        role: "edgelord",
+      },
+      {
+        text: "I express myself through unconventional art forms or creative outlets.",
+        role: "villain",
+      },
+      {
+        text: "I reject mainstream culture and seek out niche interests that resonate with my identity.",
+        role: "hero",
+      },
+    ],
+  },
+  {
+    question: "What drives your skepticism or cynicism towards authority?",
+    answers: [
+      {
+        text: "I believe those in power are inherently corrupt and seek to exploit others for personal gain.",
+        role: "villain",
+      },
+      {
+        text: "I question the motives and intentions of authority figures, preferring to rely on my own judgment.",
+        role: "edgelord",
+      },
+      {
+        text: "I've had negative experiences with authority in the past, leading me to distrust their actions.",
+        role: "hero",
+      },
+      {
+        text: "I perceive authority as restrictive and oppressive, stifling individual freedom and expression.",
+        role: "civilian",
+      },
+    ],
+  },
+  // Additional questions
+
+  {
+    question: "What would you do if you witnessed a crime being committed?",
+    answers: [
+      {
+        text: "I would join in or assist the criminal if it benefits me.",
+        role: "villain",
+      },
+      {
+        text: "I would report the crime to the authorities and provide any information I have.",
+        role: "civilian",
+      },
+      {
+        text: "I would observe from a distance and assess the situation before taking action.",
+        role: "edgelord",
+      },
+      {
+        text: "I would intervene immediately to stop the crime and help the victim.",
+        role: "hero",
+      },
+    ],
+  },
+  {
+    question:
+      "How do you react when someone challenges your beliefs or opinions?",
+    answers: [
+      {
+        text: "I become defensive and may resort to aggression to defend my views.",
+        role: "villain",
+      },
+      {
+        text: "I engage in respectful debate and try to understand the opposing perspective.",
+        role: "hero",
+      },
+      {
+        text: "I withdraw and keep my opinions to myself, avoiding confrontation.",
+        role: "civilian",
+      },
+      {
+        text: "I question my own beliefs and may reconsider them if presented with compelling arguments.",
+        role: "edgelord",
+      },
+    ],
+  },
+  {
+    question: "What's your approach to dealing with injustice or unfairness?",
+    answers: [
+      {
+        text: "I exploit the situation for my own benefit, regardless of its impact on others.",
+        role: "villain",
+      },
+      {
+        text: "I speak out against injustice and advocate for fairness and equality.",
+        role: "hero",
+      },
+      {
+        text: "I avoid getting involved and focus on maintaining my own sense of equilibrium.",
+        role: "civilian",
+      },
+      {
+        text: "I analyze the situation and may take unconventional or rebellious actions to address the injustice.",
+        role: "edgelord",
+      },
+    ],
+  },
+  {
+    question:
+      "How do you handle secrets or confidential information entrusted to you?",
+    answers: [
+      {
+        text: "I may use the information for personal gain or as leverage against others.",
+        role: "villain",
+      },
+      {
+        text: "I uphold confidentiality and only share information when necessary and appropriate.",
+        role: "civilian",
+      },
+      {
+        text: "I keep the information to myself, using it as a source of power or knowledge.",
+        role: "edgelord",
+      },
+      {
+        text: "I honor the trust placed in me and protect the confidentiality of sensitive information.",
+        role: "hero",
+      },
+    ],
+  },
+  {
+    question: "What's your preferred method of relaxation?",
+    answers: [
+      {
+        text: "Indulging in luxurious comforts and pampering myself.",
+        role: "villain",
+      },
+      {
+        text: "Spending quality time with loved ones and enjoying simple pleasures.",
+        role: "civilian",
+      },
+      {
+        text: "Exploring my inner thoughts and emotions through introspection.",
+        role: "edgelord",
+      },
+      {
+        text: "Engaging in adventurous activities and seeking adrenaline rushes.",
+        role: "hero",
+      },
+    ],
+  },
+  {
+    question:
+      "How do you approach decision-making in high-pressure situations?",
+    answers: [
+      {
+        text: "I trust my instincts and make quick decisions based on gut feelings.",
+        role: "edgelord",
+      },
+      {
+        text: "I analyze the situation carefully, weighing all possible outcomes before taking action.",
+        role: "hero",
+      },
+      {
+        text: "I manipulate circumstances to ensure the outcome aligns with my desires.",
+        role: "villain",
+      },
+      {
+        text: "I seek advice from trusted allies or mentors to guide my choices.",
+        role: "civilian",
+      },
+    ],
+  },
+  {
+    question: "How do you handle failure or setbacks?",
+    answers: [
+      {
+        text: "I refuse to accept failure and will do whatever it takes to overcome obstacles.",
+        role: "hero",
+      },
+      {
+        text: "I view setbacks as opportunities for learning and growth, adapting my approach accordingly.",
+        role: "civilian",
+      },
+      {
+        text: "I blame external factors or other individuals for my failures, avoiding personal responsibility.",
+        role: "villain",
+      },
+      {
+        text: "I retreat into solitude, reflecting on my mistakes and seeking inner strength to persevere.",
+        role: "edgelord",
+      },
+    ],
+  },
+  {
+    question:
+      "What role do ethics or morality play in your decision-making process?",
+    answers: [
+      {
+        text: "I prioritize my own self-interests above all else, disregarding moral considerations.",
+        role: "villain",
+      },
+      {
+        text: "I adhere to a strict moral code, striving to do what is right even in difficult circumstances.",
+        role: "hero",
+      },
+      {
+        text: "I question conventional morality and make decisions based on my own personal values.",
+        role: "edgelord",
+      },
+      {
+        text: "I seek to maintain a balance between ethical principles and practical concerns.",
+        role: "civilian",
+      },
     ],
   },
 ];
